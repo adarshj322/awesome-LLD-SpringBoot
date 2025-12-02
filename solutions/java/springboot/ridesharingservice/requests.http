@@ -1,0 +1,33 @@
+### Request a trip
+POST http://localhost:8080/api/rides
+Content-Type: application/json
+
+{
+  "riderId": 1,
+  "pickupLat": 12.9700,
+  "pickupLng": 77.5900,
+  "dropLat": 12.9500,
+  "dropLng": 77.6200
+}
+
+### Get trip
+GET http://localhost:8080/api/rides/{{tripId}}
+
+### Start trip
+POST http://localhost:8080/api/rides/{{tripId}}/start
+
+### Complete trip
+POST http://localhost:8080/api/rides/{{tripId}}/complete
+Content-Type: application/json
+
+75.50
+
+### Pay for trip
+POST http://localhost:8080/api/rides/payments
+Content-Type: application/json
+
+{
+  "tripId": {{tripId}},
+  "amount": 75.50,
+  "method": "CASH"
+}
