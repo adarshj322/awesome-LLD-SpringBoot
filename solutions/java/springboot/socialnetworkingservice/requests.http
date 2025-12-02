@@ -1,0 +1,60 @@
+### List users
+GET http://localhost:8080/api/social/users
+
+### Create user
+POST http://localhost:8080/api/social/users
+Content-Type: application/json
+
+{
+  "username": "dave",
+  "email": "dave@example.com",
+  "displayName": "Dave",
+  "bio": "Tester"
+}
+
+### Follow
+POST http://localhost:8080/api/social/follows
+Content-Type: application/json
+
+{
+  "followerId": 2,
+  "followeeId": 1
+}
+
+### Unfollow
+DELETE http://localhost:8080/api/social/follows
+Content-Type: application/json
+
+{
+  "followerId": 2,
+  "followeeId": 1
+}
+
+### Create post
+POST http://localhost:8080/api/social/posts
+Content-Type: application/json
+
+{
+  "authorId": 1,
+  "content": "New post from Alice",
+  "visibility": "PUBLIC"
+}
+
+### Like a post
+POST http://localhost:8080/api/social/posts/1/likes?userId=2
+
+### Unlike a post
+DELETE http://localhost:8080/api/social/posts/1/likes?userId=2
+
+### Comment
+POST http://localhost:8080/api/social/comments
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "authorId": 2,
+  "content": "Nice post!"
+}
+
+### Feed
+GET http://localhost:8080/api/social/feed?userId=2
