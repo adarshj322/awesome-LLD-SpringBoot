@@ -1,0 +1,20 @@
+### List all parking lots
+GET http://localhost:8080/api/parking-lots
+
+### View availability in CITY_CENTER
+GET http://localhost:8080/api/parking-lots/CITY_CENTER/spots
+
+### Park a car in CITY_CENTER
+POST http://localhost:8080/api/parking-lots/CITY_CENTER/tickets
+Content-Type: application/json
+
+{
+  "vehicleNumber": "KA-01-HH-1234",
+  "vehicleType": "CAR"
+}
+
+### Fetch a ticket (replace {{ticketId}})
+GET http://localhost:8080/api/parking-lots/CITY_CENTER/tickets/{{ticketId}}
+
+### Checkout a vehicle (replace {{ticketId}})
+PATCH http://localhost:8080/api/parking-lots/CITY_CENTER/tickets/{{ticketId}}/checkout
