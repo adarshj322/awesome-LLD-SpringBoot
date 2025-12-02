@@ -1,0 +1,43 @@
+### List questions
+GET http://localhost:8080/api/questions
+
+### Get question details
+GET http://localhost:8080/api/questions/1
+
+### Create question
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "title": "How to design a news feed?",
+  "body": "Need LLD pointers for designing a news feed similar to Twitter.",
+  "authorId": 1,
+  "tags": ["system-design", "feed"]
+}
+
+### Answer a question
+POST http://localhost:8080/api/questions/1/answers
+Content-Type: application/json
+
+{
+  "body": "Denormalize timelines and push updates asynchronously.",
+  "authorId": 2
+}
+
+### Vote on a question
+POST http://localhost:8080/api/questions/1/votes
+Content-Type: application/json
+
+{
+  "voterId": 3,
+  "type": "UPVOTE"
+}
+
+### Comment on an answer
+POST http://localhost:8080/api/questions/1/answers/2/comments
+Content-Type: application/json
+
+{
+  "body": "Please elaborate on async part.",
+  "authorId": 3
+}
