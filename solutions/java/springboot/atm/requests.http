@@ -1,0 +1,30 @@
+### Start session
+POST http://localhost:8080/api/atm/ATM_A1/sessions
+Content-Type: application/json
+
+{
+  "cardNumber": "4111111111111111",
+  "pin": "1234"
+}
+
+### Check balance
+POST http://localhost:8080/api/atm/sessions/{{sessionId}}/balance
+
+### Withdraw cash
+POST http://localhost:8080/api/atm/sessions/{{sessionId}}/withdraw
+Content-Type: application/json
+
+{
+  "amount": 100.00
+}
+
+### Deposit cash
+POST http://localhost:8080/api/atm/sessions/{{sessionId}}/deposit
+Content-Type: application/json
+
+{
+  "amount": 50.00
+}
+
+### End session
+POST http://localhost:8080/api/atm/sessions/{{sessionId}}/end
