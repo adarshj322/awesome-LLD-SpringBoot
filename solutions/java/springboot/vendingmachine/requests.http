@@ -1,0 +1,27 @@
+### List machines
+GET http://localhost:8080/api/vending-machines
+
+### Start session on AIRPORT_T1
+POST http://localhost:8080/api/vending-machines/AIRPORT_T1/sessions
+Content-Type: application/json
+
+{
+  "slotId": 1,
+  "quantity": 2
+}
+
+### Add payment
+POST http://localhost:8080/api/vending-machines/AIRPORT_T1/sessions/{{sessionId}}/payments
+Content-Type: application/json
+
+{
+  "method": "COIN",
+  "amount": 3.00,
+  "denomination": "3.00"
+}
+
+### Dispense
+POST http://localhost:8080/api/vending-machines/AIRPORT_T1/sessions/{{sessionId}}/dispense
+
+### Refund (alternative to dispense)
+POST http://localhost:8080/api/vending-machines/AIRPORT_T1/sessions/{{sessionId}}/refund
